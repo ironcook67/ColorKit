@@ -1,5 +1,5 @@
 //
-//  CustomColorsView.swift
+//  NamedColorsView.swift
 //  ColorKitDemo
 //
 //  Created by Chon Torres on 5/14/25.
@@ -14,7 +14,7 @@ struct NamedColorsView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
-                ForEach(CustomNamedColor.namedColors) { namedColor in
+                ForEach(NamedColor.namedColors) { namedColor in
                     VStack {
                         namedColor.color
                             .frame(width: 100, height: 100)
