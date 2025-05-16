@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4DB5F11F2DD6ADEE00A86438 /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4DB5F11E2DD6ADEE00A86438 /* ColorKit */; };
 		4DB5F1212DD6AE7F00A86438 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4DB5F1202DD6AE7F00A86438 /* README.md */; };
+		4DB5F1382DD6B71600A86438 /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4DB5F1372DD6B71600A86438 /* ColorKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DB5F11F2DD6ADEE00A86438 /* ColorKit in Frameworks */,
+				4DB5F1382DD6B71600A86438 /* ColorKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +83,7 @@
 			name = ColotKitDemo;
 			packageProductDependencies = (
 				4DB5F11E2DD6ADEE00A86438 /* ColorKit */,
+				4DB5F1372DD6B71600A86438 /* ColorKit */,
 			);
 			productName = ColotKitDemo;
 			productReference = 4DB5F1062DD6AD8500A86438 /* ColotKitDemo.app */;
@@ -111,7 +114,7 @@
 			mainGroup = 4DB5F0FD2DD6AD8500A86438;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				4DB5F11D2DD6ADEE00A86438 /* XCLocalSwiftPackageReference "../../ColorKit" */,
+				4DB5F1362DD6B71600A86438 /* XCLocalSwiftPackageReference "../../ColorKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4DB5F1072DD6AD8500A86438 /* Products */;
@@ -363,7 +366,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		4DB5F11D2DD6ADEE00A86438 /* XCLocalSwiftPackageReference "../../ColorKit" */ = {
+		4DB5F1362DD6B71600A86438 /* XCLocalSwiftPackageReference "../../ColorKit" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../ColorKit;
 		};
@@ -371,6 +374,10 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		4DB5F11E2DD6ADEE00A86438 /* ColorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ColorKit;
+		};
+		4DB5F1372DD6B71600A86438 /* ColorKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ColorKit;
 		};
