@@ -7,7 +7,7 @@
 - Initialize `Color`, `UIColor`, or `NSColor` from hex strings.
 - Extract RGBA components from colors.
 - Compute luminance from a color.
-- Manage and decode named colors with `NamedColor` and `CustomNamedColor`.
+- Manage and decode named colors with `NamedColor`.
 
 ## Installation
 
@@ -48,7 +48,7 @@ let namedColor = NamedColor(name: "Ocean Blue", hex: "#1CA9C9")
 let swiftUIColor = namedColor.color
 ```
 
-### Custom Named Colors from JSON
+### Named Colors from JSON
 
 Load and decode your own list of named colors:
 
@@ -59,7 +59,7 @@ let json = """
     { "name": "Sunset Orange", "hex": "#FD5E53" }
 ]
 """
-let customColors = try JSONDecoder().decode([CustomNamedColor].self, from: Data(json.utf8))
+let namedColors = try JSONDecoder().decode([NamedColor].self, from: Data(json.utf8))
 ```
 ### License
 
