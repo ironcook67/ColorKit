@@ -72,15 +72,42 @@ final class ColorKitTests {
         #expect(dark.adaptedTextColor() == Color.white)
     }
 
+    @Test
+    func testValidHexWithoutAlpha() {
+        #expect(Color(hexString: "#FF5733") != nil, "Color should initialize with 6-digit hex")
+    }
+
+    @Test
+    func testValidHexWithAlpha() {
+        #expect(Color(hexString: "#FF5733CC") != nil, "Color should initialize with 8-digit hex including alpha")
+    }
+
+    @Test
+    func testInvalidHexPrefix() {
+        #expect(Color(hexString: "FF5733") == nil, "Color should not initialize without '#' prefix")
+    }
+
+    @Test
+    func testInvalidHexLength() {
+        #expect(Color(hexString: "#FFF") == nil, "Color should not initialize with invalid hex length")
+    }
+
+    @Test
+    func testNonHexCharacters() {
+        #expect(Color(hexString: "#GGHHII") == nil, "Color should not initialize with non-hex characters")
+    }
+}
+
+extension ColorKitTests {
     func isApproximatelyEqual(_ lhs: Double, _ rhs: Double, significantDigits: Int = 2) -> Bool {
         guard lhs != 0 && rhs != 0 else {
             return lhs == rhs
         }
-
+        
         let scale = pow(10.0, Double(significantDigits - 1))
         let lhsScaled = round(lhs / pow(10, floor(log10(abs(lhs)))) * scale)
         let rhsScaled = round(rhs / pow(10, floor(log10(abs(rhs)))) * scale)
-
+        
         return lhsScaled == rhsScaled
     }
 }
