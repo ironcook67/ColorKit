@@ -12,7 +12,7 @@ public struct NamedColor: Identifiable, Hashable, Sendable {
     public var color: Color
     public var id: UUID = UUID()
 
-    init(name: String, hexString: String) {
+    public init(name: String, hexString: String) {
         self.name = name
         let colorFromHex = Color(hexString: hexString)
 
@@ -26,7 +26,7 @@ public struct NamedColor: Identifiable, Hashable, Sendable {
         }
     }
 
-    init(name: String, color: Color) {
+    public init(name: String, color: Color) {
         self.name = name
         self.color = color
     }
