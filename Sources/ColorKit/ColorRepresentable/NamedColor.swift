@@ -28,7 +28,7 @@ public enum ColorIntensity: String, Codable, CaseIterable, Sendable {
 
 /// Internal enum to track how the color was created
 // Making this enum private crashes the Swift compiler.
-public enum CreationMethod: Hashable, Sendable {
+public enum NamedColorCreationMethod: Hashable, Sendable {
     case hexString(String)
     case directColor
     case systemColor(String)
@@ -49,7 +49,8 @@ public struct NamedColor: Hashable, Sendable {
     // MARK: - Private metadata for encoding support
 
     /// Stores the creation method for proper encoding
-    public var creationMethod: CreationMethod = .hexString("")
+    // TODO: Make this private once encoding is stable
+    public var creationMethod: NamedColorCreationMethod = .hexString("")
 
     /// Initializes a NamedColor with a name and a hex string.
     public init(_ name: String = "", hexString: String) {

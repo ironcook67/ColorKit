@@ -11,7 +11,7 @@ import SwiftUI
 public struct NamedColorData: Codable {
     let name: String
     let id: UUID
-    let encoding: ColorEncoding
+    let encoding: NamedColorEncoding
 
     // For hex string colors
     let hexString: String?
@@ -32,7 +32,7 @@ public struct NamedColorData: Codable {
 }
 
 /// Represents different ways a NamedColor can be encoded to preserve reconstruction capability
-public enum ColorEncoding: String, Codable {
+public enum NamedColorEncoding: String, Codable {
     case hexString
     case systemColor
     case mixedColors
