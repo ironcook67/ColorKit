@@ -150,12 +150,7 @@ struct NamedColorCodableTests {
 
         // When
         let encodedData = try JSONEncoder().encode(originalColor)
-
-        print("TDB: Encoded Data: \(String(data: encodedData, encoding: .utf8) ?? "nil")")
-
         let decodedColor = try JSONDecoder().decode(NamedColor.self, from: encodedData)
-
-        print("TDB: Decoded Color: \(decodedColor)")
 
         // Then
         #expect(decodedColor.name == originalColor.name)

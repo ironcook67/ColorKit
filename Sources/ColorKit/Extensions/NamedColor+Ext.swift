@@ -7,16 +7,8 @@
 
 import SwiftUI
 
-/// Represents different ways a NamedColor can be encoded to preserve reconstruction capability
-private enum ColorEncoding: String, Codable {
-    case hexString
-    case systemColor
-    case mixedColors
-    case colorWithIntensity
-}
-
 /// Private structure used for encoding/decoding NamedColor instances
-private struct NamedColorData: Codable {
+public struct NamedColorData: Codable {
     let name: String
     let id: UUID
     let encoding: ColorEncoding
@@ -37,6 +29,14 @@ private struct NamedColorData: Codable {
     let baseColorHex: String?
     let baseSystemColorName: String?
     let intensity: ColorIntensity?
+}
+
+/// Represents different ways a NamedColor can be encoded to preserve reconstruction capability
+public enum ColorEncoding: String, Codable {
+    case hexString
+    case systemColor
+    case mixedColors
+    case colorWithIntensity
 }
 
 extension NamedColor: Codable {
@@ -66,6 +66,8 @@ extension NamedColor: Codable {
                 )
             }
 
+            self.creationMethod = .hexString(hexString)
+
             if let color = Color(hexString: hexString) {
                 self.color = color
             } else {
@@ -86,6 +88,7 @@ extension NamedColor: Codable {
             }
 
             self.color = Self.systemColor(named: systemColorName) ?? Color.clear
+            self.creationMethod = .systemColor(systemColorName)
 
         case .mixedColors:
             guard let baseHex = data.baseHexString,
@@ -104,6 +107,12 @@ extension NamedColor: Codable {
 
             let colorSpace = Self.gradientColorSpace(from: colorSpaceString)
             self.color = baseColor.mix(with: mixColor, by: fraction, in: colorSpace)
+            self.creationMethod = .mixedColors(
+                baseHex: baseHex,
+                mixHex: mixHex,
+                fraction: fraction,
+                colorSpace: colorSpace
+            )
 
         case .colorWithIntensity:
             guard let intensity = data.intensity else {
@@ -130,6 +139,7 @@ extension NamedColor: Codable {
             }
 
             self.color = baseColor.opacity(intensity.opacity)
+            self.creationMethod = .colorWithIntensity(baseColor: baseColor, intensity: intensity)
         }
     }
 
@@ -139,21 +149,69 @@ extension NamedColor: Codable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
 
-        // Determine the best encoding strategy based on how this color was likely created
-        let data = try Self.determineEncodingStrategy(for: self)
+        let data = try createEncodingData()
         try container.encode(data, forKey: .data)
     }
 
-    /// Determines the appropriate encoding strategy for a NamedColor
-    /// - Parameter namedColor: The NamedColor to analyze
+    /// Creates the appropriate NamedColorData based on the creation method
     /// - Returns: NamedColorData configured with the appropriate encoding strategy
     /// - Throws: EncodingError if the color cannot be encoded
-    private static func determineEncodingStrategy(for namedColor: NamedColor) throws -> NamedColorData {
-        // Check if this is a system color
-        if let systemColorName = systemColorName(for: namedColor.color) {
+    private func createEncodingData() throws -> NamedColorData {
+        switch creationMethod {
+        case .hexString(let hexString):
             return NamedColorData(
-                name: namedColor.name,
-                id: namedColor.id,
+                name: name,
+                id: id,
+                encoding: .hexString,
+                hexString: hexString,
+                systemColorName: nil,
+                baseHexString: nil,
+                mixHexString: nil,
+                mixFraction: nil,
+                colorSpace: nil,
+                baseColorHex: nil,
+                baseSystemColorName: nil,
+                intensity: nil
+            )
+
+        case .directColor:
+            // For direct colors, try to detect if it's a system color, otherwise use hex
+            if let systemColorName = Self.systemColorName(for: color) {
+                return NamedColorData(
+                    name: name,
+                    id: id,
+                    encoding: .systemColor,
+                    hexString: nil,
+                    systemColorName: systemColorName,
+                    baseHexString: nil,
+                    mixHexString: nil,
+                    mixFraction: nil,
+                    colorSpace: nil,
+                    baseColorHex: nil,
+                    baseSystemColorName: nil,
+                    intensity: nil
+                )
+            } else {
+                return NamedColorData(
+                    name: name,
+                    id: id,
+                    encoding: .hexString,
+                    hexString: color.asHexString(),
+                    systemColorName: nil,
+                    baseHexString: nil,
+                    mixHexString: nil,
+                    mixFraction: nil,
+                    colorSpace: nil,
+                    baseColorHex: nil,
+                    baseSystemColorName: nil,
+                    intensity: nil
+                )
+            }
+
+        case .systemColor(let systemColorName):
+            return NamedColorData(
+                name: name,
+                id: id,
                 encoding: .systemColor,
                 hexString: nil,
                 systemColorName: systemColorName,
@@ -165,61 +223,57 @@ extension NamedColor: Codable {
                 baseSystemColorName: nil,
                 intensity: nil
             )
-        }
 
-        // For non-system colors, default to hex string encoding
-        return NamedColorData(
-            name: namedColor.name,
-            id: namedColor.id,
-            encoding: .hexString,
-            hexString: namedColor.color.asHexString(),
-            systemColorName: nil,
-            baseHexString: nil,
-            mixHexString: nil,
-            mixFraction: nil,
-            colorSpace: nil,
-            baseColorHex: nil,
-            baseSystemColorName: nil,
-            intensity: nil
-        )
-    }
+        case .mixedColors(let baseHex, let mixHex, let fraction, let colorSpace):
+            return NamedColorData(
+                name: name,
+                id: id,
+                encoding: .mixedColors,
+                hexString: nil,
+                systemColorName: nil,
+                baseHexString: baseHex,
+                mixHexString: mixHex,
+                mixFraction: fraction,
+                colorSpace: colorSpace == .device ? "device" : "perceptual",
+                baseColorHex: nil,
+                baseSystemColorName: nil,
+                intensity: nil
+            )
 
-    /// Attempts to identify if a color matches a known system color
-    /// - Parameter color: The color to check
-    /// - Returns: The system color name if found, nil otherwise
-    private static func systemColorName(for color: Color) -> String? {
-        let systemColors: [(String, Color)] = [
-            ("clear", Color.clear),
-            ("black", Color.black),
-            ("white", Color.white),
-            ("gray", Color.gray),
-            ("red", Color.red),
-            ("green", Color.green),
-            ("blue", Color.blue),
-            ("orange", Color.orange),
-            ("yellow", Color.yellow),
-            ("pink", Color.pink),
-            ("purple", Color.purple),
-            ("primary", Color.primary),
-            ("secondary", Color.secondary),
-            ("accentColor", Color.accentColor)
-        ]
-
-        let targetTuple = color.asTuple()
-
-        for (name, systemColor) in systemColors {
-            let systemTuple = systemColor.asTuple()
-
-            // Compare with a small tolerance for floating point precision
-            if abs(targetTuple.red - systemTuple.red) < 0.001 &&
-                abs(targetTuple.green - systemTuple.green) < 0.001 &&
-                abs(targetTuple.blue - systemTuple.blue) < 0.001 &&
-                abs(targetTuple.alpha - systemTuple.alpha) < 0.001 {
-                return name
+        case .colorWithIntensity(let baseColor, let intensity):
+            // Check if base color is a system color
+            if let systemColorName = Self.systemColorName(for: baseColor) {
+                return NamedColorData(
+                    name: name,
+                    id: id,
+                    encoding: .colorWithIntensity,
+                    hexString: nil,
+                    systemColorName: nil,
+                    baseHexString: nil,
+                    mixHexString: nil,
+                    mixFraction: nil,
+                    colorSpace: nil,
+                    baseColorHex: nil,
+                    baseSystemColorName: systemColorName,
+                    intensity: intensity
+                )
+            } else {
+                return NamedColorData(
+                    name: name,
+                    id: id,
+                    encoding: .colorWithIntensity,
+                    hexString: nil,
+                    systemColorName: nil,
+                    baseHexString: nil,
+                    mixHexString: nil,
+                    mixFraction: nil,
+                    colorSpace: nil,
+                    baseColorHex: baseColor.asHexString(),
+                    baseSystemColorName: nil,
+                    intensity: intensity
+                )
             }
         }
-
-        return nil
     }
 
     /// Creates a system color from its name

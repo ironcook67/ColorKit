@@ -26,6 +26,16 @@ public enum ColorIntensity: String, Codable, CaseIterable, Sendable {
     }
 }
 
+/// Internal enum to track how the color was created
+// Making this enum private crashes the Swift compiler.
+public enum CreationMethod: Hashable, Sendable {
+    case hexString(String)
+    case directColor
+    case systemColor(String)
+    case mixedColors(baseHex: String, mixHex: String, fraction: Double, colorSpace: Gradient.ColorSpace)
+    case colorWithIntensity(baseColor: Color, intensity: ColorIntensity)
+}
+
 public struct NamedColor: Hashable, Sendable {
     /// The name of the color.
     public var name: String
@@ -36,11 +46,17 @@ public struct NamedColor: Hashable, Sendable {
     /// A unique identifier for this color.
     public var id: UUID = UUID()
 
+    // MARK: - Private metadata for encoding support
+
+    /// Stores the creation method for proper encoding
+    public var creationMethod: CreationMethod = .hexString("")
+
     /// Initializes a NamedColor with a name and a hex string.
     public init(_ name: String = "", hexString: String) {
         self.name = name
-        let colorFromHex = Color(hexString: hexString)
+        self.creationMethod = .hexString(hexString)
 
+        let colorFromHex = Color(hexString: hexString)
         if let color = colorFromHex {
             self.color = color
         } else {
@@ -55,6 +71,13 @@ public struct NamedColor: Hashable, Sendable {
     public init(_ name: String = "", color: Color) {
         self.name = name
         self.color = color
+
+        // Try to detect if this is a system color
+        if let systemColorName = Self.systemColorName(for: color) {
+            self.creationMethod = .systemColor(systemColorName)
+        } else {
+            self.creationMethod = .directColor
+        }
     }
 
     /// Initializes a NamedColor by mixing two colors with a specified fraction.
@@ -67,6 +90,12 @@ public struct NamedColor: Hashable, Sendable {
     ) {
         self.name = name
         self.color = color.mix(with: color2, by: fraction, in: colorSpace)
+        self.creationMethod = .mixedColors(
+            baseHex: color.asHexString(),
+            mixHex: color2.asHexString(),
+            fraction: fraction,
+            colorSpace: colorSpace
+        )
     }
 
     /// Initializes a NamedColor with a name, color, and intensity.
@@ -77,9 +106,49 @@ public struct NamedColor: Hashable, Sendable {
     ) {
         self.name = name
         self.color = color.opacity(intensity.opacity)
+        self.creationMethod = .colorWithIntensity(baseColor: color, intensity: intensity)
+    }
+
+    /// Attempts to identify if a color matches a known system color
+    /// - Parameter color: The color to check
+    /// - Returns: The system color name if found, nil otherwise
+    public static func systemColorName(for color: Color) -> String? {
+        let systemColors: [(String, Color)] = [
+            ("clear", Color.clear),
+            ("black", Color.black),
+            ("white", Color.white),
+            ("gray", Color.gray),
+            ("red", Color.red),
+            ("green", Color.green),
+            ("blue", Color.blue),
+            ("orange", Color.orange),
+            ("yellow", Color.yellow),
+            ("pink", Color.pink),
+            ("purple", Color.purple),
+            ("primary", Color.primary),
+            ("secondary", Color.secondary),
+            ("accentColor", Color.accentColor)
+        ]
+
+        let targetTuple = color.asTuple()
+
+        for (name, systemColor) in systemColors {
+            let systemTuple = systemColor.asTuple()
+
+            // Compare with a small tolerance for floating point precision
+            if abs(targetTuple.red - systemTuple.red) < 0.001 &&
+                abs(targetTuple.green - systemTuple.green) < 0.001 &&
+                abs(targetTuple.blue - systemTuple.blue) < 0.001 &&
+                abs(targetTuple.alpha - systemTuple.alpha) < 0.001 {
+                return name
+            }
+        }
+
+        return nil
     }
 }
 
+/// Provides a default example instance of NamedColor and a collection of named colors.
 public extension NamedColor {
     static let example = NamedColor("Example", hexString: "#FF5733")
     
