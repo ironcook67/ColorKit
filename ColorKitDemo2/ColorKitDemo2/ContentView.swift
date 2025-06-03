@@ -339,8 +339,8 @@ struct ColorTileView: View {
 
                 Text(namedColor.color.asHexString())
                     .font(.caption2)
+                    .monospaced()
                     .foregroundColor(.secondary)
-//                    .fontFamily(.monospaced)
             }
         }
         .onTapGesture {
@@ -445,26 +445,6 @@ struct ColorDetailView: View {
     }
 }
 
-//// MARK: - Extension for Color mixing (if not available in the package)
-//extension Color {
-//    func mix(with color: Color, by fraction: Double, in colorSpace: Gradient.ColorSpace = .perceptual) -> Color {
-//        // This is a simplified mixing implementation
-//        // In a real implementation, you might want to use the actual ColorKit mixing method
-//        let fraction = max(0, min(1, fraction))
-//
-//        let color1Tuple = self.asTuple()
-//        let color2Tuple = color.asTuple()
-//
-//        let red = color1Tuple.red * (1 - fraction) + color2Tuple.red * fraction
-//        let green = color1Tuple.green * (1 - fraction) + color2Tuple.green * fraction
-//        let blue = color1Tuple.blue * (1 - fraction) + color2Tuple.blue * fraction
-//        let alpha = color1Tuple.alpha * (1 - fraction) + color2Tuple.alpha * fraction
-//
-//        return Color(red: red, green: green, blue: blue, opacity: alpha)
-//    }
-//}
-
-// MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

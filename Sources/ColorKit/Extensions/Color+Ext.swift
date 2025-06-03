@@ -128,7 +128,7 @@ public extension Color {
     // Take a rgba component between 0 and 1.0 and convert to a 8-bit hex string.
     private func componentToHexString(_ component: Double) -> String {
         let int = Int((component * 255).rounded())
-        return String(int, radix: 16)
+        return String(format: "%02X", int)
     }
 }
 
