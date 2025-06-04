@@ -44,7 +44,9 @@ public struct NamedColor: Hashable, Sendable {
     public var color: Color
 
     /// A unique identifier for this color.
-    public var id: UUID = UUID()
+    var id: String {
+        name.isEmpty ? color.asHexString() : name
+    }
 
     // MARK: - Private metadata for encoding support
 
