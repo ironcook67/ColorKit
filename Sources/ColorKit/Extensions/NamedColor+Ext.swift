@@ -10,7 +10,7 @@ import SwiftUI
 /// Private structure used for encoding/decoding NamedColor instances
 public struct NamedColorData: Codable {
     let name: String
-    let id: UUID
+    let id: String
     let encoding: NamedColorEncoding
 
     // For hex string colors
@@ -53,7 +53,6 @@ extension NamedColor: Codable {
         let data = try container.decode(NamedColorData.self, forKey: .data)
 
         self.name = data.name
-        self.id = data.id
 
         switch data.encoding {
         case .hexString:
@@ -292,9 +291,6 @@ extension NamedColor: Codable {
         case "yellow": return Color.yellow
         case "pink": return Color.pink
         case "purple": return Color.purple
-        case "primary": return Color.primary
-        case "secondary": return Color.secondary
-        case "accentColor": return Color.accentColor
         default: return nil
         }
     }

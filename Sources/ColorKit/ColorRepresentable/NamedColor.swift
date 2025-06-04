@@ -44,7 +44,9 @@ public struct NamedColor: Hashable, Sendable {
     public var color: Color
 
     /// A unique identifier for this color.
-    public var id: UUID = UUID()
+    var id: String {
+        name.isEmpty ? color.asHexString() : name
+    }
 
     // MARK: - Private metadata for encoding support
 
@@ -115,20 +117,22 @@ public struct NamedColor: Hashable, Sendable {
     /// - Returns: The system color name if found, nil otherwise
     public static func systemColorName(for color: Color) -> String? {
         let systemColors: [(String, Color)] = [
-            ("clear", Color.clear),
-            ("black", Color.black),
-            ("white", Color.white),
-            ("gray", Color.gray),
             ("red", Color.red),
-            ("green", Color.green),
-            ("blue", Color.blue),
             ("orange", Color.orange),
             ("yellow", Color.yellow),
-            ("pink", Color.pink),
+            ("green", Color.green),
+            ("mint", Color.mint),
+            ("teal", Color.teal),
+            ("cyan", Color.cyan),
+            ("blue", Color.blue),
+            ("indigo", Color.indigo),
             ("purple", Color.purple),
-            ("primary", Color.primary),
-            ("secondary", Color.secondary),
-            ("accentColor", Color.accentColor)
+            ("pink", Color.pink),
+            ("brown", Color.brown),
+            ("white", Color.white),
+            ("gray", Color.gray),
+            ("black", Color.black),
+            ("clear", Color.clear),
         ]
 
         let targetTuple = color.asTuple()
@@ -172,7 +176,6 @@ public extension NamedColor {
         NamedColor("Fern", hexString: "#408000"),
         NamedColor("Clover", hexString: "#008000"),
         NamedColor("Moss", hexString: "#008040"),
-        NamedColor("Teal", hexString: "#008080"),
         NamedColor("Ocean", hexString: "#004080"),
         NamedColor("Midnight", hexString: "#000080"),
         NamedColor("Eggplant", hexString: "#400080"),

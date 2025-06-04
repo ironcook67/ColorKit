@@ -7,58 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D47D7892DEFC4E100B01822 /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4D47D7882DEFC4E100B01822 /* ColorKit */; };
-		4DB5F11F2DD6ADEE00A86438 /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4DB5F11E2DD6ADEE00A86438 /* ColorKit */; };
-		4DB5F1212DD6AE7F00A86438 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4DB5F1202DD6AE7F00A86438 /* README.md */; };
-		4DB5F1382DD6B71600A86438 /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4DB5F1372DD6B71600A86438 /* ColorKit */; };
+		4D47D76A2DEFC06D00B01822 /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4D47D7692DEFC06D00B01822 /* ColorKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4DB5F1062DD6AD8500A86438 /* ColotKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColotKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4DB5F1202DD6AE7F00A86438 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4D47D7522DEFBFE800B01822 /* ColorKitCodableDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorKitCodableDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		4DB5F1082DD6AD8500A86438 /* ColotKitDemo */ = {
+		4D47D7542DEFBFE800B01822 /* ColorKitCodableDemo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ColotKitDemo;
-			sourceTree = "<group>";
-		};
-		4DB5F1222DD6AF1000A86438 /* Screenshots */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Screenshots;
+			path = ColorKitCodableDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4DB5F1032DD6AD8500A86438 /* Frameworks */ = {
+		4D47D74F2DEFBFE800B01822 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D47D7892DEFC4E100B01822 /* ColorKit in Frameworks */,
-				4DB5F11F2DD6ADEE00A86438 /* ColorKit in Frameworks */,
-				4DB5F1382DD6B71600A86438 /* ColorKit in Frameworks */,
+				4D47D76A2DEFC06D00B01822 /* ColorKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4DB5F0FD2DD6AD8500A86438 = {
+		4D47D7492DEFBFE700B01822 = {
 			isa = PBXGroup;
 			children = (
-				4DB5F1222DD6AF1000A86438 /* Screenshots */,
-				4DB5F1082DD6AD8500A86438 /* ColotKitDemo */,
-				4DB5F1072DD6AD8500A86438 /* Products */,
-				4DB5F1202DD6AE7F00A86438 /* README.md */,
+				4D47D7542DEFBFE800B01822 /* ColorKitCodableDemo */,
+				4D47D7532DEFBFE800B01822 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		4DB5F1072DD6AD8500A86438 /* Products */ = {
+		4D47D7532DEFBFE800B01822 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4DB5F1062DD6AD8500A86438 /* ColotKitDemo.app */,
+				4D47D7522DEFBFE800B01822 /* ColorKitCodableDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,82 +53,78 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4DB5F1052DD6AD8500A86438 /* ColotKitDemo */ = {
+		4D47D7512DEFBFE800B01822 /* ColorKitCodableDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4DB5F1122DD6AD8700A86438 /* Build configuration list for PBXNativeTarget "ColotKitDemo" */;
+			buildConfigurationList = 4D47D75E2DEFBFEA00B01822 /* Build configuration list for PBXNativeTarget "ColorKitCodableDemo" */;
 			buildPhases = (
-				4DB5F1022DD6AD8500A86438 /* Sources */,
-				4DB5F1032DD6AD8500A86438 /* Frameworks */,
-				4DB5F1042DD6AD8500A86438 /* Resources */,
+				4D47D74E2DEFBFE800B01822 /* Sources */,
+				4D47D74F2DEFBFE800B01822 /* Frameworks */,
+				4D47D7502DEFBFE800B01822 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				4DB5F1082DD6AD8500A86438 /* ColotKitDemo */,
-				4DB5F1222DD6AF1000A86438 /* Screenshots */,
+				4D47D7542DEFBFE800B01822 /* ColorKitCodableDemo */,
 			);
-			name = ColotKitDemo;
+			name = ColorKitCodableDemo;
 			packageProductDependencies = (
-				4DB5F11E2DD6ADEE00A86438 /* ColorKit */,
-				4DB5F1372DD6B71600A86438 /* ColorKit */,
-				4D47D7882DEFC4E100B01822 /* ColorKit */,
+				4D47D7692DEFC06D00B01822 /* ColorKit */,
 			);
-			productName = ColotKitDemo;
-			productReference = 4DB5F1062DD6AD8500A86438 /* ColotKitDemo.app */;
+			productName = ColotKitCodableDemo;
+			productReference = 4D47D7522DEFBFE800B01822 /* ColorKitCodableDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4DB5F0FE2DD6AD8500A86438 /* Project object */ = {
+		4D47D74A2DEFBFE800B01822 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
-					4DB5F1052DD6AD8500A86438 = {
+					4D47D7512DEFBFE800B01822 = {
 						CreatedOnToolsVersion = 16.3;
 					};
 				};
 			};
-			buildConfigurationList = 4DB5F1012DD6AD8500A86438 /* Build configuration list for PBXProject "ColotKitDemo" */;
+			buildConfigurationList = 4D47D74D2DEFBFE800B01822 /* Build configuration list for PBXProject "ColorKitCodableDemo" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 4DB5F0FD2DD6AD8500A86438;
+			mainGroup = 4D47D7492DEFBFE700B01822;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				4D47D7872DEFC4E100B01822 /* XCLocalSwiftPackageReference "../../ColorKit" */,
+				4D47D7682DEFC06D00B01822 /* XCLocalSwiftPackageReference "../../ColorKit" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 4DB5F1072DD6AD8500A86438 /* Products */;
+			productRefGroup = 4D47D7532DEFBFE800B01822 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4DB5F1052DD6AD8500A86438 /* ColotKitDemo */,
+				4D47D7512DEFBFE800B01822 /* ColorKitCodableDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4DB5F1042DD6AD8500A86438 /* Resources */ = {
+		4D47D7502DEFBFE800B01822 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DB5F1212DD6AE7F00A86438 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4DB5F1022DD6AD8500A86438 /* Sources */ = {
+		4D47D74E2DEFBFE800B01822 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -151,7 +134,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		4DB5F1102DD6AD8700A86438 /* Debug */ = {
+		4D47D75C2DEFBFEA00B01822 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -213,7 +196,7 @@
 			};
 			name = Debug;
 		};
-		4DB5F1112DD6AD8700A86438 /* Release */ = {
+		4D47D75D2DEFBFEA00B01822 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -267,12 +250,12 @@
 			};
 			name = Release;
 		};
-		4DB5F1132DD6AD8700A86438 /* Debug */ = {
+		4D47D75F2DEFBFEA00B01822 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ColotKitDemo/ColotKitDemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ColorKitCodableDemo/ColorKitCodableDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4FH6DPMUTJ;
@@ -294,24 +277,24 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chontorres.ColotKitDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chontorres.ColorKitCodableDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 6.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Debug;
 		};
-		4DB5F1142DD6AD8700A86438 /* Release */ = {
+		4D47D7602DEFBFEA00B01822 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ColotKitDemo/ColotKitDemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ColorKitCodableDemo/ColorKitCodableDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4FH6DPMUTJ;
@@ -333,13 +316,13 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chontorres.ColotKitDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chontorres.ColorKitCodableDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 6.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
@@ -348,20 +331,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4DB5F1012DD6AD8500A86438 /* Build configuration list for PBXProject "ColotKitDemo" */ = {
+		4D47D74D2DEFBFE800B01822 /* Build configuration list for PBXProject "ColorKitCodableDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4DB5F1102DD6AD8700A86438 /* Debug */,
-				4DB5F1112DD6AD8700A86438 /* Release */,
+				4D47D75C2DEFBFEA00B01822 /* Debug */,
+				4D47D75D2DEFBFEA00B01822 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4DB5F1122DD6AD8700A86438 /* Build configuration list for PBXNativeTarget "ColotKitDemo" */ = {
+		4D47D75E2DEFBFEA00B01822 /* Build configuration list for PBXNativeTarget "ColorKitCodableDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4DB5F1132DD6AD8700A86438 /* Debug */,
-				4DB5F1142DD6AD8700A86438 /* Release */,
+				4D47D75F2DEFBFEA00B01822 /* Debug */,
+				4D47D7602DEFBFEA00B01822 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -369,26 +352,18 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		4D47D7872DEFC4E100B01822 /* XCLocalSwiftPackageReference "../../ColorKit" */ = {
+		4D47D7682DEFC06D00B01822 /* XCLocalSwiftPackageReference "../../ColorKit" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../ColorKit;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4D47D7882DEFC4E100B01822 /* ColorKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ColorKit;
-		};
-		4DB5F11E2DD6ADEE00A86438 /* ColorKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ColorKit;
-		};
-		4DB5F1372DD6B71600A86438 /* ColorKit */ = {
+		4D47D7692DEFC06D00B01822 /* ColorKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ColorKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 4DB5F0FE2DD6AD8500A86438 /* Project object */;
+	rootObject = 4D47D74A2DEFBFE800B01822 /* Project object */;
 }
