@@ -229,7 +229,7 @@ struct ColorMixingView: View {
 
                     // Mixed Colors Display
                     if !mixedColors.isEmpty {
-                        VStack(alignment: .l       eading, spacing: 12) {
+                        VStack(alignment: .leading, spacing: 12) {
                             Text("Your Mixed Colors")
                                 .font(.headline)
                                 .foregroundColor(.primary)
