@@ -14,7 +14,7 @@ struct NamedColorsView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
-                ForEach(NamedColor.namedColors) { namedColor in
+                ForEach(NamedColor.namedColors, id: \.self) { namedColor in
                     VStack {
                         namedColor.color
                             .frame(width: 100, height: 100)

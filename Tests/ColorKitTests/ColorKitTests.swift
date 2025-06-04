@@ -96,6 +96,44 @@ final class ColorKitTests {
     func testNonHexCharacters() {
         #expect(Color(hexString: "#GGHHII") == nil, "Color should not initialize with non-hex characters")
     }
+
+    @Test func testColorByName() {
+        #expect(NamedColor("red", color: .red).color == .red)
+        #expect(NamedColor("blue", color: .blue).color == .blue)
+        #expect(NamedColor("green", color: .green).color == .green)
+    }
+
+    @Test func testColorByIntensity() {
+        #expect(NamedColor(color: .red, intensity: .primary).color == Color.red.opacity(1.0))
+        #expect(NamedColor(color: .red, intensity: .secondary).color == Color.red.opacity(0.8))
+        #expect(NamedColor(color: .red, intensity: .tertiary).color == Color.red.opacity(0.6))
+        #expect(NamedColor(color: .red, intensity: .quaternary).color == Color.red.opacity(0.4))
+        #expect(NamedColor(color: .red, intensity: .quinary).color == Color.red.opacity(0.2))
+    }
+
+    @Test func testColorByMix() {
+        let mix = NamedColor(color: .red, with: .blue, by: 0.5)
+        let referenceColor = Color.red.mix(with: .blue, by: 0.5)
+        #expect(mix.color == referenceColor, "Mix should produce the correct blended color")
+    }
+
+    @Test func testColorRepresentableName() {
+        let red = NamedColor("red", color: .red)
+        #expect(red.name == "red")
+        #expect(red.color == .red)
+    }
+
+    @Test func testColorRepresentableIntensity() {
+        let light = NamedColor("lightRed", color: .red, intensity: .quinary)
+        #expect(light.name == "lightRed")
+        #expect(light.color == Color.red.opacity(0.2))
+    }
+
+    @Test func testColorRepresentableMix() {
+        let mix = NamedColor("Mix", color: .red, with: .green, by: 0.5)
+        #expect(mix.name.contains("Mix"))
+        #expect(mix.color == Color.red.mix(with: .green, by: 0.5))
+    }
 }
 
 extension ColorKitTests {
