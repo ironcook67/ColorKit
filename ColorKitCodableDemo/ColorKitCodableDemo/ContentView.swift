@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  ColotKitCodableDemo
+//  ColorKitCodableDemo
 //
 //  Created by Chon Torres on 6/3/25.
 //
@@ -84,7 +84,7 @@ struct ContentView: View {
             }
             #if os(iOS)
             .navigationBarHidden(true)
-            #endif
+            #endif // os(iOS)
             .fileImporter(
                 isPresented: $showingFilePicker,
                 allowedContentTypes: [.json],
@@ -115,6 +115,9 @@ struct ContentView: View {
                 Text(alertMessage)
             }
         }
+        #if os(macOS)
+            .frame(minWidth: 800, maxWidth: .infinity, minHeight: 400, maxHeight: .infinity)
+        #endif // os(macOS)
     }
 }
 
@@ -129,7 +132,7 @@ struct ColorPaletteView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 16) {
-                ForEach(colors, id: \.id) { namedColor in
+                ForEach(colors, id: \.self) { namedColor in
                     ColorCardView(namedColor: namedColor)
                 }
             }
@@ -192,8 +195,8 @@ class PaletteManager: ObservableObject {
             NamedColor("Forest Green", hexString: "#228B22"),
 
             // System colors
-            NamedColor("System Primary", color: .primary),
-            NamedColor("System Accent", color: .accentColor),
+            NamedColor("System Teal", color: .teal),
+            NamedColor("System Mint", color: .mint),
             NamedColor("System Orange", color: .orange),
 
             // Colors with intensity

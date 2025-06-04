@@ -11,13 +11,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4D47D7522DEFBFE800B01822 /* ColotKitCodableDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColotKitCodableDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D47D7522DEFBFE800B01822 /* ColorKitCodableDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorKitCodableDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		4D47D7542DEFBFE800B01822 /* ColotKitCodableDemo */ = {
+		4D47D7542DEFBFE800B01822 /* ColorKitCodableDemo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ColotKitCodableDemo;
+			path = ColorKitCodableDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -37,7 +37,7 @@
 		4D47D7492DEFBFE700B01822 = {
 			isa = PBXGroup;
 			children = (
-				4D47D7542DEFBFE800B01822 /* ColotKitCodableDemo */,
+				4D47D7542DEFBFE800B01822 /* ColorKitCodableDemo */,
 				4D47D7532DEFBFE800B01822 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,7 +45,7 @@
 		4D47D7532DEFBFE800B01822 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4D47D7522DEFBFE800B01822 /* ColotKitCodableDemo.app */,
+				4D47D7522DEFBFE800B01822 /* ColorKitCodableDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,9 +53,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4D47D7512DEFBFE800B01822 /* ColotKitCodableDemo */ = {
+		4D47D7512DEFBFE800B01822 /* ColorKitCodableDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4D47D75E2DEFBFEA00B01822 /* Build configuration list for PBXNativeTarget "ColotKitCodableDemo" */;
+			buildConfigurationList = 4D47D75E2DEFBFEA00B01822 /* Build configuration list for PBXNativeTarget "ColorKitCodableDemo" */;
 			buildPhases = (
 				4D47D74E2DEFBFE800B01822 /* Sources */,
 				4D47D74F2DEFBFE800B01822 /* Frameworks */,
@@ -66,14 +66,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				4D47D7542DEFBFE800B01822 /* ColotKitCodableDemo */,
+				4D47D7542DEFBFE800B01822 /* ColorKitCodableDemo */,
 			);
-			name = ColotKitCodableDemo;
+			name = ColorKitCodableDemo;
 			packageProductDependencies = (
 				4D47D7692DEFC06D00B01822 /* ColorKit */,
 			);
 			productName = ColotKitCodableDemo;
-			productReference = 4D47D7522DEFBFE800B01822 /* ColotKitCodableDemo.app */;
+			productReference = 4D47D7522DEFBFE800B01822 /* ColorKitCodableDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -91,7 +91,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4D47D74D2DEFBFE800B01822 /* Build configuration list for PBXProject "ColotKitCodableDemo" */;
+			buildConfigurationList = 4D47D74D2DEFBFE800B01822 /* Build configuration list for PBXProject "ColorKitCodableDemo" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -108,7 +108,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4D47D7512DEFBFE800B01822 /* ColotKitCodableDemo */,
+				4D47D7512DEFBFE800B01822 /* ColorKitCodableDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -255,7 +255,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ColotKitCodableDemo/ColotKitCodableDemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ColorKitCodableDemo/ColorKitCodableDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4FH6DPMUTJ;
@@ -277,7 +277,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chontorres.ColotKitCodableDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chontorres.ColorKitCodableDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -294,7 +294,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ColotKitCodableDemo/ColotKitCodableDemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ColorKitCodableDemo/ColorKitCodableDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4FH6DPMUTJ;
@@ -316,7 +316,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chontorres.ColotKitCodableDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chontorres.ColorKitCodableDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -331,7 +331,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4D47D74D2DEFBFE800B01822 /* Build configuration list for PBXProject "ColotKitCodableDemo" */ = {
+		4D47D74D2DEFBFE800B01822 /* Build configuration list for PBXProject "ColorKitCodableDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D47D75C2DEFBFEA00B01822 /* Debug */,
@@ -340,7 +340,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4D47D75E2DEFBFEA00B01822 /* Build configuration list for PBXNativeTarget "ColotKitCodableDemo" */ = {
+		4D47D75E2DEFBFEA00B01822 /* Build configuration list for PBXNativeTarget "ColorKitCodableDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D47D75F2DEFBFEA00B01822 /* Debug */,
