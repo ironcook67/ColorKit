@@ -399,7 +399,7 @@ struct NamedColorCodableTests {
     @Test("Encoded JSON contains expected structure for system color")
     func testEncodedJSONStructureForSystemColor() throws {
         // Given
-        let color = NamedColor("Mint", color: Color.mint)
+        let color = NamedColor("Teal", color: Color.teal)
 
         // When
         let encodedData = try JSONEncoder().encode(color)
@@ -408,9 +408,9 @@ struct NamedColorCodableTests {
 
         // Then
         #expect(dataObject != nil)
-        #expect(dataObject?["name"] as? String == "Mint")
+        #expect(dataObject?["name"] as? String == "Teal")
         #expect(dataObject?["encoding"] as? String == "systemColor")
-        #expect(dataObject?["systemColorName"] as? String == "mint")
+        #expect(dataObject?["systemColorName"] as? String == "teal")
         #expect(dataObject?["hexString"] == nil)
     }
 }
