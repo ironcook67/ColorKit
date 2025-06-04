@@ -28,7 +28,13 @@ final class ColorKitTests {
     func testInitWithHexStringWithAlpha() {
         let color = Color(hexString: "#0000FF80")
         #expect(color != nil)
+
+        print("zzz color: \(color.debugDescription)")
+
         let components = color!.asTuple()
+
+        print("zzz components: \(components)")
+
         #expect(components.red == 0.0)
         #expect(components.green == 0.0)
         #expect(components.blue == 1.0)

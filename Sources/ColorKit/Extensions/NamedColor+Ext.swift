@@ -292,9 +292,6 @@ extension NamedColor: Codable {
         case "yellow": return Color.yellow
         case "pink": return Color.pink
         case "purple": return Color.purple
-        case "primary": return Color.primary
-        case "secondary": return Color.secondary
-        case "accentColor": return Color.accentColor
         default: return nil
         }
     }

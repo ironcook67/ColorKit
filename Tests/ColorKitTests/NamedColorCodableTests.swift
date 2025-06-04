@@ -107,9 +107,6 @@ struct NamedColorCodableTests {
     // MARK: - System Color Encoding Tests
 
     @Test("System color encoding and decoding", arguments: [
-        ("Primary", Color.primary),
-        ("Secondary", Color.secondary),
-        ("Accent", Color.accentColor),
         ("Red", Color.red),
         ("Green", Color.green),
         ("Blue", Color.blue),
@@ -165,7 +162,7 @@ struct NamedColorCodableTests {
     @Test("System color with intensity encoding and decoding")
     func testSystemColorWithIntensityCoding() throws {
         // Given
-        let originalColor = NamedColor("Faded Primary", color: Color.primary, intensity: .tertiary)
+        let originalColor = NamedColor("Faded Green", color: Color.green, intensity: .tertiary)
 
         // When
         let encodedData = try JSONEncoder().encode(originalColor)
@@ -402,7 +399,7 @@ struct NamedColorCodableTests {
     @Test("Encoded JSON contains expected structure for system color")
     func testEncodedJSONStructureForSystemColor() throws {
         // Given
-        let color = NamedColor("Primary", color: Color.primary)
+        let color = NamedColor("Mint", color: Color.mint)
 
         // When
         let encodedData = try JSONEncoder().encode(color)
@@ -411,9 +408,9 @@ struct NamedColorCodableTests {
 
         // Then
         #expect(dataObject != nil)
-        #expect(dataObject?["name"] as? String == "Primary")
+        #expect(dataObject?["name"] as? String == "Mint")
         #expect(dataObject?["encoding"] as? String == "systemColor")
-        #expect(dataObject?["systemColorName"] as? String == "primary")
+        #expect(dataObject?["systemColorName"] as? String == "mint")
         #expect(dataObject?["hexString"] == nil)
     }
 }
